@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Simulador_RPG;
+package RPG_simulador;
 
 /**
  *
@@ -10,43 +10,41 @@ package Simulador_RPG;
  */
 public class Personagem {
     String nome;
-    int altura;
-    int peso;
     int level;
     int vidaMAX;
-    int vidaAtual;
+    double vidaAtual;
     int almas;
-    String classeInicial;
-    int cargaMAXkg;
+    double defesa;
+    double cargaMAXkg;
+    double cargaAtual;
     int PTvigor;
     int PTresistencia;
     int PTvitalidade;
     int PTsintonização;
     int PTforca;
     int PTdestreza;
-    int PTadaptabilidade;
+    double PTvelocidade;
     int PTinteligencia;
     int PTfé;
     String equipMdireita;
     String equipMesquerda;
     
-    public Personagem(String nome,int altura,int peso,int level,int vidaMaxima,int vidaAtual,int almasatuais, String classeInicial, int cargaMaxima, int vigor,int resistencia,int vitalidade,int sintonização,int forca,int destreza,int adaptabilidade,int inteligencia, int fé,String equipMdeireita,String equipMesquerda){
+    public Personagem(String nome,int level,int vidaMaxima,double vidaAtual, double defesa_Per, int almasatuais, double cargaMaxima, double carga_atual, int vigor,int resistencia,int vitalidade,int sintonização,int forca,int destreza,double adaptabilidade,int inteligencia, int fé,String equipMdeireita,String equipMesquerda){
         this.nome = nome;
-        this.altura = altura;
-        this.peso = peso;
         this.level = level;
         vidaMAX = vidaMaxima;
         this.vidaAtual = vidaAtual;
         almas = almasatuais;
-        this.classeInicial = classeInicial;
+        defesa = defesa_Per;
         cargaMAXkg = cargaMaxima;
+        cargaAtual = carga_atual;
         PTvigor = vigor;
         PTresistencia = resistencia;
         PTvitalidade = vitalidade;
         PTsintonização = sintonização;
         PTforca = forca;
         PTdestreza = destreza;
-        PTadaptabilidade = adaptabilidade;
+        PTvelocidade = adaptabilidade;
         PTinteligencia = inteligencia;
         PTfé = fé;
         this.equipMdireita = equipMdeireita;
@@ -60,15 +58,20 @@ public class Personagem {
     public String getNome() {
         return nome;
     }
-
-    public int getAltura() {
-        return altura;
+    
+    public void calcularVelocidade(){
+        
     }
-
-    public int getPeso() {
-        return peso;
+    
+    public void calcularDesvio(double velocidade_ataque){
+       double placar = Math.random() * 20;
+       
     }
-
+    
+    public void sofrerDano(double dano, double velocidade_ataque){
+        
+    }
+    
     public int getLevel() {
         return level;
     }
@@ -77,20 +80,24 @@ public class Personagem {
         return vidaMAX;
     }
 
-    public int getVidaAtual() {
+    public double getVidaAtual() {
         return vidaAtual;
     }
 
     public int getAlmas() {
         return almas;
     }
-
-    public String getClasseInicial() {
-        return classeInicial;
+    
+    public double getDefesa(){
+        return defesa;
     }
 
-    public int getCargaMAXkg() {
+    public double getCargaMAXkg() {
         return cargaMAXkg;
+    }
+    
+    public double getCargaAtual(){
+        return cargaAtual;
     }
 
     public int getPTvigor() {
