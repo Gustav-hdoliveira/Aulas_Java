@@ -25,7 +25,7 @@ public class Personagem {
     int PTdestreza;
     double PTvelocidade;
     int PTinteligencia;
-    int PTfé;
+    int PTfe;
     String equipMdireita;
     String equipMesquerda;
     
@@ -41,12 +41,12 @@ public class Personagem {
         PTvigor = vigor;
         PTresistencia = resistencia;
         PTvitalidade = vitalidade;
-        PTsintonização = sintonização;
+        PTsintonização = sintonização; // quantos de feitiços podem ser portados ao msm tempo
         PTforca = forca;
         PTdestreza = destreza;
-        PTvelocidade = adaptabilidade;
+        PTvelocidade = adaptabilidade; // a velocidade do jogador é determinada dividindo o atributo por 2
         PTinteligencia = inteligencia;
-        PTfé = fé;
+        PTfe = fé;
         this.equipMdireita = equipMdeireita;
         this.equipMesquerda = equipMesquerda;
     }
@@ -55,21 +55,45 @@ public class Personagem {
         return Spersonagem;
     }
     
+    public boolean calcularDesvioChance(double velocidade_ataque){
+        double diferenca = velocidade_ataque / (PTvelocidade / 2);
+        double placar = Math.random()*20;
+        if(diferenca < 0.25) return (placar > 1);
+        if(diferenca < 0.35) return (placar > 1.8);
+        if(diferenca < 0.45) return (placar > 3);
+        if(diferenca < 0.55) return (placar > 4);
+        if(diferenca < 0.70) return (placar > 6);
+        if(diferenca < 0.82) return (placar > 8);
+        if(diferenca < 0.92) return (placar > 9);
+        if(diferenca < 1) return (placar > 10);
+        if(diferenca < 1.2) return (placar > 12);
+        if(diferenca < 1.5) return (placar > 14);
+        if(diferenca < 1.75) return (placar > 15.5);
+        if(diferenca < 1.90) return (placar > 17);
+        if(diferenca < 2) return (placar > 18);
+        if(diferenca > 2) return (placar > 18.5);
+        return false;
+    }
+    
+    public double calcularDano(double danocalculo){
+        double calculo = danocalculo - getDefesa();
+        if (calculo > 0) {
+            double danoreal = calculo - getVidaAtual();
+            return danoreal;
+        } else {
+            double danoreal = danocalculo / 10;
+            return danoreal;
+        }
+        
+    }
+    public void sofrerDano(double dano){
+        double danoCalculado = getVidaAtual() - calcularDano(dano);
+        vidaAtual = danoCalculado;
+        System.out.println("Você sofreu " + vidaAtual + " de dano.");
+    }
+    
     public String getNome() {
         return nome;
-    }
-    
-    public void calcularVelocidade(){
-        
-    }
-    
-    public void calcularDesvio(double velocidade_ataque){
-       double placar = Math.random() * 20;
-       
-    }
-    
-    public void sofrerDano(double dano, double velocidade_ataque){
-        
     }
     
     public int getLevel() {
@@ -124,8 +148,8 @@ public class Personagem {
         return PTdestreza;
     }
 
-    public int getPTadaptabilidade() {
-        return PTadaptabilidade;
+    public double getPTvelocidade() {
+        return PTvelocidade;
     }
 
     public int getPTinteligencia() {
@@ -133,7 +157,7 @@ public class Personagem {
     }
 
     public int getPTfé() {
-        return PTfé;
+        return PTfe;
     }
 
     public String getEquipMdireita() {
