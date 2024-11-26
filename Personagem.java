@@ -78,8 +78,7 @@ public class Personagem {
     public double calcularDano(double danocalculo){
         double calculo = danocalculo - getDefesa();
         if (calculo > 0) {
-            double danoreal = calculo - getVidaAtual();
-            return danoreal;
+            return calculo;
         } else {
             double danoreal = danocalculo / 10;
             return danoreal;
