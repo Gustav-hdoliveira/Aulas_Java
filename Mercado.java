@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ArrayList;
+package ArrayLista;
 
 /**
  *
@@ -15,12 +15,7 @@ public class Mercado extends javax.swing.JFrame {
      */
     public Mercado() {
         initComponents();
-        Eletronicos ProdutosEletronicos = new Eletronicos();
-        Alimentos ProdutosAlimentos = new Alimentos();
-        Utencilios ProdutosUtencilios = new Utencilios();
-        String[] EletrosNomes = ProdutosEletronicos.nomes;
-        double[] EletrosPrecos = ProdutosEletronicos.precos;
-        ArrayList<EletrosNomes> NomeEletronicos = new ArrayList<>();
+        
     }
 
     /**
