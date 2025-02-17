@@ -21,7 +21,7 @@ public class ComputadorPokemon extends javax.swing.JFrame {
     public ComputadorPokemon() {
         initComponents();
         modeloLista = new DefaultListModel<>();
-        Lista.setModel(modeloLista);
+        ListaPokemonComputador.setModel(modeloLista);
     }
 
     /**
@@ -33,68 +33,105 @@ public class ComputadorPokemon extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        TelaComputador = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Lista = new javax.swing.JList<>();
-        btnRemover = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        ListaPokemonComputador = new javax.swing.JList<>();
+        btnCompPmochila = new javax.swing.JButton();
+        IndicadorComputador = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jLabel2 = new javax.swing.JLabel();
+        ListaPokemonMochila = new javax.swing.JList<>();
+        IndicadorMochila = new javax.swing.JLabel();
+        btnMochilaPcomp = new javax.swing.JButton();
+        txtAnuncios = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 400));
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 0));
+        TelaComputador.setBackground(new java.awt.Color(255, 102, 0));
 
-        jScrollPane1.setViewportView(Lista);
+        ListaPokemonComputador.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Lista_Vazia" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(ListaPokemonComputador);
 
-        btnRemover.setText("Remover");
-        btnRemover.addActionListener(new java.awt.event.ActionListener() {
+        btnCompPmochila.setText("Para a mochila");
+        btnCompPmochila.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoverActionPerformed(evt);
+                btnCompPmochilaActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Computador");
+        IndicadorComputador.setFont(new java.awt.Font("SimSun", 0, 14)); // NOI18N
+        IndicadorComputador.setText("Computador");
 
-        jScrollPane3.setViewportView(jList1);
+        jScrollPane3.setViewportView(ListaPokemonMochila);
 
-        jLabel2.setText("Mochila");
+        IndicadorMochila.setFont(new java.awt.Font("Showcard Gothic", 0, 14)); // NOI18N
+        IndicadorMochila.setText("Mochila");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+        btnMochilaPcomp.setText("Para o computador");
+        btnMochilaPcomp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMochilaPcompActionPerformed(evt);
+            }
+        });
+
+        txtAnuncios.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        txtAnuncios.setText("Gerencionamento de Pokemon");
+
+        javax.swing.GroupLayout TelaComputadorLayout = new javax.swing.GroupLayout(TelaComputador);
+        TelaComputador.setLayout(TelaComputadorLayout);
+        TelaComputadorLayout.setHorizontalGroup(
+            TelaComputadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TelaComputadorLayout.createSequentialGroup()
+                .addGroup(TelaComputadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TelaComputadorLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(TelaComputadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnMochilaPcomp)
+                            .addComponent(IndicadorMochila))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRemover)
-                            .addComponent(jLabel2))))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(TelaComputadorLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(TelaComputadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(TelaComputadorLayout.createSequentialGroup()
+                                .addComponent(txtAnuncios)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(TelaComputadorLayout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(TelaComputadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(TelaComputadorLayout.createSequentialGroup()
+                                        .addGap(0, 10, Short.MAX_VALUE)
+                                        .addComponent(btnCompPmochila))
+                                    .addGroup(TelaComputadorLayout.createSequentialGroup()
+                                        .addComponent(IndicadorComputador)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+        TelaComputadorLayout.setVerticalGroup(
+            TelaComputadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaComputadorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(TelaComputadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaComputadorLayout.createSequentialGroup()
+                        .addComponent(IndicadorComputador)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnRemover)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnCompPmochila)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtAnuncios)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(TelaComputadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(TelaComputadorLayout.createSequentialGroup()
+                        .addComponent(btnMochilaPcomp)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(IndicadorMochila))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -104,26 +141,31 @@ public class ComputadorPokemon extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TelaComputador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TelaComputador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
-        int index = Lista.getSelectedIndex();
-            if (index != -1) { // Verifica se algo foi selecionado
+    private void btnCompPmochilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompPmochilaActionPerformed
+        int index = ListaPokemonComputador.getSelectedIndex();
+        if (index != -1) { // Verifica se algo foi selecionado
+            
             modeloLista.remove(index);
         }
-    }//GEN-LAST:event_btnRemoverActionPerformed
+    }//GEN-LAST:event_btnCompPmochilaActionPerformed
+
+    private void btnMochilaPcompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMochilaPcompActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMochilaPcompActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,13 +203,15 @@ public class ComputadorPokemon extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList<String> Lista;
-    private javax.swing.JButton btnRemover;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel IndicadorComputador;
+    private javax.swing.JLabel IndicadorMochila;
+    private javax.swing.JList<String> ListaPokemonComputador;
+    private javax.swing.JList<String> ListaPokemonMochila;
+    private javax.swing.JPanel TelaComputador;
+    private javax.swing.JButton btnCompPmochila;
+    private javax.swing.JButton btnMochilaPcomp;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel txtAnuncios;
     // End of variables declaration//GEN-END:variables
 }
