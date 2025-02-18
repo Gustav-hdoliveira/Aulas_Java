@@ -31,15 +31,13 @@ public class Treinador {
         mochila.add(newPoke);
     }
     
-    void get_Vazio(Pokemon PokeCelecionado){
+    void alter_Vazio(Pokemon PokeCelecionado){
         for (int i = 0; i < mochila.size(); i++) {
             if("vazio".equals(mochila.get(i).get_nome())){
-                mochila.get(i);
+                mochila.get(i).set_Vazio(PokeCelecionado);
             }
         }
     }
     
-    void set_Vazio(Pokemon PokeCelecionado){
-        
-    }
+    
 }

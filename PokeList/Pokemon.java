@@ -19,11 +19,17 @@ public class Pokemon {
         nivel = nivelPoke;
     }
     
+    void set_Vazio(Pokemon PokeCelecionado){
+        nome = PokeCelecionado.get_nome();
+        tipo = PokeCelecionado.get_tipo();
+        nivel = PokeCelecionado.get_nivel();
+    }
+    
     String get_nome(){
         return nome;
     }
     
-    String get_tipo_primario(){
+    String get_tipo(){
         return tipo;
     }
     
