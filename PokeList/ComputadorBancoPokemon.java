@@ -12,4 +12,9 @@ import java.util.ArrayList;
  */
 public class ComputadorBancoPokemon {
     ArrayList<Pokemon> BancoPokemon = new ArrayList<>();
+    
+    void addPokemonAObanco(String NomePKnovo, String TipoPKnovo, int LevelPKnovo){
+        Pokemon pokemonNovo = new Pokemon(NomePKnovo, TipoPKnovo, LevelPKnovo);
+        BancoPokemon.add(pokemonNovo);
+    }
 }

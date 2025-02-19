@@ -11,9 +11,9 @@ package PokeList;
 public class Pokemon {
     String nome;
     String tipo;
-    String nivel;
+    int nivel;
     
-    public Pokemon(String nome_poke, String tipo1, String nivelPoke){
+    public Pokemon(String nome_poke, String tipo1, int nivelPoke){
         nome = nome_poke;
         tipo = tipo1;
         nivel = nivelPoke;
@@ -33,7 +33,7 @@ public class Pokemon {
         return tipo;
     }
     
-    String get_nivel(){
+    int get_nivel(){
         return nivel;
     }
 }
