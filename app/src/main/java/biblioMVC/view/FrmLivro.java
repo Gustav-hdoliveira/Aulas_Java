@@ -4,6 +4,11 @@
  */
 package biblioMVC.view;
 
+import biblioMVC.controller.LivroController;
+import biblioMVC.model.ConexaoSQLite;
+import biblioMVC.model.ListarLivros;
+import java.sql.Connection;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,14 +16,16 @@ import javax.swing.JOptionPane;
  * @author GUSTAVOHENRIQUEDEOLI
  */
 public class FrmLivro extends javax.swing.JFrame {
-
-    /**
-     * Creates new form FrmLivro
-     */
+    
+    Connection conexao;
+    DefaultListModel<String> modelo = new DefaultListModel<>();
+    
+    LivroController livroController = new LivroController();
     public FrmLivro() {
         initComponents();
+        this.conexao = ConexaoSQLite.conectar();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,7 +39,7 @@ public class FrmLivro extends javax.swing.JFrame {
         TxtFautor = new javax.swing.JTextField();
         TxtFano = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        listaDlivros = new javax.swing.JList<>();
         TxtTitulo = new javax.swing.JLabel();
         TxtAutor = new javax.swing.JLabel();
         TxtAno = new javax.swing.JLabel();
@@ -53,7 +60,7 @@ public class FrmLivro extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listaDlivros);
 
         TxtTitulo.setText("Titulo");
 
@@ -154,7 +161,8 @@ public class FrmLivro extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAddActionPerformed
 
     private void BtnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnListarActionPerformed
-        // TODO add your handling code here:
+        modelo.addElement(ListarLivros.listarLivros(conexao));
+        listaDlivros.setModel(modelo);
     }//GEN-LAST:event_BtnListarActionPerformed
 
     /**
@@ -201,7 +209,7 @@ public class FrmLivro extends javax.swing.JFrame {
     private javax.swing.JTextField TxtFautor;
     private javax.swing.JTextField TxtFtitulo;
     private javax.swing.JLabel TxtTitulo;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> listaDlivros;
     // End of variables declaration//GEN-END:variables
 }
