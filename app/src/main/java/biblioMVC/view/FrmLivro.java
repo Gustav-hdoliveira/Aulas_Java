@@ -6,7 +6,6 @@ package biblioMVC.view;
 
 import biblioMVC.controller.LivroController;
 import biblioMVC.model.ConexaoSQLite;
-import biblioMVC.model.ListarLivros;
 import java.sql.Connection;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -161,7 +160,7 @@ public class FrmLivro extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAddActionPerformed
 
     private void BtnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnListarActionPerformed
-        modelo.addElement(ListarLivros.listarLivros(conexao));
+        modelo.addElement(livroController.listarLivros(conexao));
         listaDlivros.setModel(modelo);
     }//GEN-LAST:event_BtnListarActionPerformed
 
