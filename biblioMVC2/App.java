@@ -7,6 +7,6 @@ import biblioMVC2.database.Conexao;
 
 public class App {
     public static void main(String[] args) {
-        Conexao.Conexao();
+        Conexao.conexao();
     }
 }
