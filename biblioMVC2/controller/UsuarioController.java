@@ -5,7 +5,7 @@
 package biblioMVC2.controller;
 
 import biblioMVC2.model.Usuario;
-import biblioMVC2.model.UsuarioDAO;
+import biblioMVC2.dao.UsuarioDAO;
 
 /**
  *
@@ -17,5 +17,10 @@ public class UsuarioController {
     public boolean registrarUsuario(String username, String senha){
         Usuario usuario = new Usuario(username, senha);
         return usuarioDAO.registarUsuario(usuario);
+    }
+    
+    public boolean validarLogin(String username, String senha){
+        Usuario usuario = new Usuario(username, senha);
+        return usuarioDAO.validarLogin(usuario);
     }
 }

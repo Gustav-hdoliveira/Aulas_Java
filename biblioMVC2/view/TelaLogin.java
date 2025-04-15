@@ -56,6 +56,11 @@ public class TelaLogin extends javax.swing.JFrame {
         });
 
         BtnEntrar.setText("Entrar");
+        BtnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEntrarActionPerformed(evt);
+            }
+        });
 
         TxtFsenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +126,19 @@ public class TelaLogin extends javax.swing.JFrame {
     private void TxtFsenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFsenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtFsenhaActionPerformed
+
+    private void BtnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEntrarActionPerformed
+        String username = TxtFuser.getText().trim();
+        String passw = new String(TxtFsenha.getPassword()).trim();
+        
+        if(controller.validarLogin(username, passw)){
+            JOptionPane.showMessageDialog(this, "Login efetuado.");
+            new TelaUser(username).setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showConfirmDialog(this, "Erro ao Logar!");
+        }
+    }//GEN-LAST:event_BtnEntrarActionPerformed
 
     /**
      * @param args the command line arguments

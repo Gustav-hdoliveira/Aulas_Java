@@ -4,9 +4,10 @@
 package biblioMVC2;
 
 import biblioMVC2.database.Conexao;
+import biblioMVC2.view.TelaLogin;
 
 public class App {
     public static void main(String[] args) {
-        Conexao.conexao();
+        new TelaLogin().setVisible(true);
     }
 }
