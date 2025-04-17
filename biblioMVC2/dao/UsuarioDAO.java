@@ -18,7 +18,7 @@ import org.mindrot.jbcrypt.BCrypt;
  */
 public class UsuarioDAO {
     
-        public boolean registarUsuario(Usuario usuario){
+        public static boolean registarUsuario(Usuario usuario){
             String sql = "INSERT INTO usuarios (usuario, senha) VALUES (?, ?)";
             
             String user = usuario.getEmail();
@@ -39,7 +39,7 @@ public class UsuarioDAO {
             }
         }
         
-        public boolean validarLogin(Usuario usuario) {
+    public static boolean validarLogin(Usuario usuario) {
             String sql = "SELECT senha FROM usuarios WHERE usuario = ?";
 
             try (Connection conn = Conexao.conexao(); 
@@ -55,6 +55,20 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             e.printStackTrace();
             
+        }
+        return false;
+    }
+        
+    public static boolean alterarUsuario(String Nusername, String username, String Npassword){
+        String sql = "UPDATE usuarios SET usuario = ? SET senha = ? WHERE usuario = ?;";
+        
+        try (Connection conn = Conexao.conexao(); PreparedStatement stmt = conn.prepareStatement(sql)){
+            stmt.setString(1, Nusername);
+            stmt.setString(2, Npassword);
+            stmt.setString(3, username);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e){
+            e.printStackTrace();
         }
         return false;
     }

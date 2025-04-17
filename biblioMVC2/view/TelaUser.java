@@ -4,18 +4,24 @@
  */
 package biblioMVC2.view;
 
+import biblioMVC2.controller.UsuarioController;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author GUSTAVOHENRIQUEDEOLI
  */
 public class TelaUser extends javax.swing.JFrame {
+    UsuarioController controller;
     String email;
     /**
      * Creates new form TelaUser
      */
     public TelaUser(String email) {
         initComponents();
+        controller = new UsuarioController();
         this.email = email;
+        TxtEmail.setText(this.email);
     }
 
     /**
@@ -32,6 +38,8 @@ public class TelaUser extends javax.swing.JFrame {
         BtnAlt = new javax.swing.JButton();
         BtnDelete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        TxtFsenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,7 +57,16 @@ public class TelaUser extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("email");
+        jLabel1.setText("email:");
+
+        jLabel2.setText("senha:");
+
+        TxtFsenha.setText("jPasswordField1");
+        TxtFsenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtFsenhaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,15 +78,17 @@ public class TelaUser extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnAlt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(BtnAlt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(BtnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                            .addComponent(TxtFemail))
-                        .addGap(119, 119, 119))))
+                            .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtFemail)
+                            .addComponent(TxtFsenha, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                        .addGap(110, 110, 110))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,23 +99,38 @@ public class TelaUser extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtFemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxtEmail))
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtnAlt)
-                    .addComponent(BtnDelete))
-                .addContainerGap(148, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(TxtFsenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnDelete)
+                    .addComponent(BtnAlt))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAltActionPerformed
+        String Nusername = TxtFemail.getText();
+        String OldUsername = TxtEmail.getText();
         
+        if(controller.alterarUsuario(Nusername, OldUsername, TxtFsenha.getPassword())){
+            JOptionPane.showConfirmDialog(this, "Valores Alterados.");
+        } else {
+            JOptionPane.showConfirmDialog(this, "Erro ao alterar valores.");
+        }
     }//GEN-LAST:event_BtnAltActionPerformed
 
     private void BtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeleteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnDeleteActionPerformed
+
+    private void TxtFsenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFsenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtFsenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,6 +172,8 @@ public class TelaUser extends javax.swing.JFrame {
     private javax.swing.JButton BtnDelete;
     private javax.swing.JLabel TxtEmail;
     private javax.swing.JTextField TxtFemail;
+    private javax.swing.JPasswordField TxtFsenha;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

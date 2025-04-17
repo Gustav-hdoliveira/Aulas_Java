@@ -12,15 +12,25 @@ import biblioMVC2.dao.UsuarioDAO;
  * @author GUSTAVOHENRIQUEDEOLI
  */
 public class UsuarioController {
-    private UsuarioDAO usuarioDAO = new UsuarioDAO();
     
     public boolean registrarUsuario(String username, String senha){
         Usuario usuario = new Usuario(username, senha);
-        return usuarioDAO.registarUsuario(usuario);
+        return UsuarioDAO.registarUsuario(usuario);
     }
     
-    public boolean validarLogin(String username, String senha){
+    public boolean validarLogin(String username, char[] charSenha){
+        String senha = new String(charSenha).trim();
+        
         Usuario usuario = new Usuario(username, senha);
-        return usuarioDAO.validarLogin(usuario);
+        return UsuarioDAO.validarLogin(usuario);
+    }
+    
+    public boolean alterarUsuario(String NewUsername, String OldUsername, char[] charSenha){
+        
+        String senha = new String(charSenha).trim();
+        if(NewUsername.isEmpty()||senha.isEmpty()){
+            return false;
+        }
+        return UsuarioDAO.alterarUsuario(NewUsername, OldUsername, senha);
     }
 }

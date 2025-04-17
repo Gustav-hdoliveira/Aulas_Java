@@ -129,9 +129,8 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void BtnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEntrarActionPerformed
         String username = TxtFuser.getText().trim();
-        String passw = new String(TxtFsenha.getPassword()).trim();
         
-        if(controller.validarLogin(username, passw)){
+        if(controller.validarLogin(username, TxtFsenha.getPassword())){
             JOptionPane.showMessageDialog(this, "Login efetuado.");
             new TelaUser(username).setVisible(true);
             this.dispose();
